@@ -3,7 +3,26 @@ using namespace std;
 int main()
 {
 	int a = 0, b = 0, c = 0, max = 0, mid = 0, min = 0, palindrom = 0;
-	cin >> a >> b >> c;
+	//validation start
+	cin >> a;
+	while (a < 0 || a>9) {
+		cin.clear();
+		cin.ignore(100, '\n');
+		cin >> a;
+	}
+	cin >> b;
+	while (b < 0 || b>9) {
+		cin.clear();
+		cin.ignore(100, '\n');
+		cin >> b;
+	}
+	cin >> c;
+	while (c < 0 || c>9) {
+		cin.clear();
+		cin.ignore(100, '\n');
+		cin >> c;
+	}
+	//validation end
 	max = a;
 	mid = b;
 	min = c;
