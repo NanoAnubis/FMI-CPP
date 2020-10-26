@@ -11,22 +11,17 @@ int main()
 		cin.ignore(100, '\n');
 		cin >> N;
 	}
-	while (x <= N)
-	{
+	while (x <= N) {
 		number = N;
-		if (number % x == 0)
-		{
+		if (number % x == 0) {
 			number = number / x;
 			int i = 1;
-			while (i <= number)
-			{
+			while (i <= number) {
 				y = i;
-				if (number % y == 0)
-				{
+				if (number % y == 0) {
 					z = number / y;
 					s = x + y + z;
-					if (s < T || 0 == T)
-					{
+					if (s < T || 0 == T) {
 						m = x;
 						p = y;
 						q = z;

@@ -2,11 +2,9 @@
 using namespace std;
 int main() {
 	int n = 0, maxc = -1, maxp = -1;//maxc- nastoqsht maximum, maxp- predishen maximum 
-	do
-	{
+	do {
 		cin >> n;
-		if (maxc < n)
-		{
+		if (maxc < n) {
 			maxp = maxc;
 			maxc = n;
 		}
