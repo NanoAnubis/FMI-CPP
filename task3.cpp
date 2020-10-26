@@ -49,11 +49,20 @@ int main()
 	}
 	else if (min == 0) {
 		if (mid == 0) {
-			palindrom = 10001 * max;
+			palindrom = 1001 * max;
+		}
+		else if (max == mid) {
+			palindrom = 101 * mid;
 		}
 		else {
 			palindrom = 10001 * mid + 100 * max;
 		}
+	}
+	else if (max == mid) {
+		palindrom = 101 * max + 10 * min;
+	}
+	else if (mid == min) {
+		palindrom = 101 * min + 10 * max;
 	}
 	else {
 		palindrom = 10001 * min + 1010 * mid + 100 * max;
