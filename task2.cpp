@@ -1,3 +1,17 @@
+/**
+*  
+* Solution to homework assignment 1
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2020/2021
+*
+* @author Lubomir Stoykov
+* @idnumber 62569
+* @task 2
+* @compiler VC
+*
+*/
+
 #include <iostream>
 using namespace std;
 int main() {
