@@ -1,9 +1,7 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-int main()
-{
-	int n=0,maxc=0,maxp=0;//maxc- nastoqsht maximum, maxp- predishen maximum 
-	cin >> n;
+int main() {
+	int n = 0, maxc = -1, maxp = -1;//maxc- nastoqsht maximum, maxp- predishen maximum 
 	do
 	{
 		cin >> n;
