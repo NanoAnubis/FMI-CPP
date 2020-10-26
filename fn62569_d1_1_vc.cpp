@@ -27,10 +27,10 @@ int main()
 		}
 	}
 	if (total > x) {
-		cout << "yes " << total - x;
+		cout << "yes\n" << total - x;
 	}
 	else {
-		cout << "no " << x - total;
+		cout << "no\n" << x - total;
 	}
 	return 0;
 }
