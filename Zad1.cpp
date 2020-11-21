@@ -5,18 +5,21 @@ int main()
 {
 	int SpecAbs(int,int);
 	bool CheckTriangle(int, int, int, int);
-	int SizeV;
+	int SizeV=0;
 	bool isTrue = 1;
+	vector<int>seq;
+	
 	do {
 		cin >> SizeV;
 	} while (SizeV < 3 || SizeV>100);
-	vector<int>seq;
+	
 	for (int i = 0; i < SizeV; i++) {
 		int number;
 		cin >> number;
 		seq.push_back(number);
 	}
 	int N = SizeV;
+	
 	for (int i = 0; i <= N; i++, N--) {
 		if (SizeV % 2 == 0 && i == N) break;
 		else if (SizeV % 2 != 0 && i == N - 1) break;
@@ -29,6 +32,7 @@ int main()
 	cout << isTrue<<endl;
 	return 0;
 }
+
 int SpecAbs(int a=0, int b=0) {
 	if (a - b >= 0) {
 		return a - b;
@@ -37,6 +41,7 @@ int SpecAbs(int a=0, int b=0) {
 		return b - a;
 	}
 }
+
 bool CheckTriangle(int a, int b, int c, int d) {
 	int x = SpecAbs(a, b);
 	int y = SpecAbs(c, d);
