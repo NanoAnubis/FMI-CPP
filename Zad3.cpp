@@ -26,7 +26,7 @@ int CounterP(vector<int>seq, int i , int size, int s, int x) {
 				if (seq[i + p] == seq[x - p]) {
 					if (i + p == x - p || i + p == (x - p) - 1) {
 						s = s + p;
-						i = i + 2;
+						i = i + p;
 						x = i + 1;
 						break;
 					}
