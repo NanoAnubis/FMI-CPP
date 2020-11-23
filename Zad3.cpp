@@ -14,12 +14,27 @@ int main()
 		cin >> number;
 		seq.push_back(number);
 	}
-	int i = 0 , x = 1, s = 0;
-	cout << CounterP(seq, i, SizeV, s, x);
+	int i = 0, x = 2, s = 0;
+	int count = 0;
+	count = CounterP(seq, i, SizeV, s, x);
+	if (count == 0) {
+		cout << "-1";
+	}
+	else {
+		cout << count;
+	}
 	return 0;
 }
 
-int CounterP(vector<int>seq, int i , int size, int s, int x) {
+int CounterP(vector<int>seq, int i, int size, int s, int x) {
+	for (int k = 1; k < size; k++) {    //proverqva dali vsichki elementi sa ravni
+		if (seq[i] != seq[k]) break;
+		s = s + (k - 1);
+		if (k == size - 1) {
+			return s;
+		}
+	}
+	s = 0;
 	while (i < size - 2) {
 		if (seq[i] == seq[x]) {
 			for (int p = 1; p <= ((x - i) / 2); p++) {
