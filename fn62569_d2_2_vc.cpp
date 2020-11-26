@@ -36,18 +36,16 @@ int main()
 	bool change = true;
 
 	for (int i = 1; i < SizeV; i++) {
-		if (initP > DShares[i]) {
+		if (DShares[i - 1] > DShares[i]) {
+			profit += (DShares[i - 1] - initP);
 			initP = DShares[i];
 		}
-		else {
-			if (DShares[i - 1] > DShares[i]) {
-				profit += (DShares[i - 1] - initP);
-				initP = DShares[i];
-			}
-			if (i == SizeV - 1) {
-				profit += (DShares[i] - initP);
-			}
+		if (i == SizeV - 1) {
+			profit += (DShares[i] - initP);
 		}
+		else if (initP > DShares[i]) {
+			initP = DShares[i];
+			}
 	}
 
 	cout << profit;
