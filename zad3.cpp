@@ -20,12 +20,6 @@ int main() {
 		}
 		Msquare.push_back(row);
 	}
-	/*for (int i = 0; i < N; i++) {
-		for (int p = 0; p < N; p++) {
-			cout << Msquare[i][p] << " ";
-
-		}
-	}*/
 	if (isMagic(Msquare, N) == 1) {
 		cout << "true" << endl;
 	}
