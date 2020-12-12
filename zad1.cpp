@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-	const size_t SizeText = 150;
+	const size_t SizeText = 151;
 	char text[SizeText] = "";
 	bool Check(char arr[]);
 	cin.getline(text,SizeText);
@@ -14,7 +14,7 @@ bool Check(char arr[]) {
 	int counter = 0, counter_tmp = 1, counter_tmp2 = 0;
 	char tmp ='\0';
 	bool flag = 0;
-	const size_t SizeText = 150;
+	const size_t SizeText = 151;
 	char checkdS[SizeText] = "";
 	size_t size = 0, sizetmp = 0;
 	while (arr[size] != '\0') {
