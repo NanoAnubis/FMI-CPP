@@ -66,7 +66,7 @@ bool Check(char arr[]) {
 				}
 			}
 		}
-		if (counter == 1 && counter_tmp == counter_tmp2 && counter_tmp != 1) {
+		if (counter == 1 && counter_tmp == counter_tmp2 && counter_tmp != 1) {//ako ima 1ca pri drugi (ex. aaaabcccc)
 			counter_tmp = 1;
 			continue;
 		}
