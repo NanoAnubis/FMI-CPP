@@ -17,10 +17,10 @@ int power(int base, int ex) {
 	return result;
 }
 
-bool isThere(char arr[100][100], char* newarr) {
+bool isThere(char arr[100*99/2][100], char* newarr) {
 	int sizenew = strsize(newarr);
 	bool check = 0;
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 100*99/2; i++) {
 		int sizeprev = strsize(arr[i]);
 		if (sizenew == sizeprev) {
 			for (int p = 0; p < sizenew; p++) {
@@ -46,8 +46,9 @@ bool isThere(char arr[100][100], char* newarr) {
 
 int substring(char* arr, const int n) {
 	int sizecheck = power(2, n);
+	//if (sizecheck > 100*99/2) return sizecheck;
 	int count = 0, p = 0, q = 0;
-	char text[100][100] = {};
+	char text[100*99/2][100] = {};
 	char tmp[100] = "";
 	for (int s = 0; s < 100; s++) {
 		for (int t = 0; t < 100; t++) {
@@ -58,19 +59,19 @@ int substring(char* arr, const int n) {
 		for (int j = 0; j < n; j++) {
 			if (i & (1 << j)) { // obhojda vsichko ot 00...01 do 11...11
 				//cout << arr[j]<<" ";
-				//text[q][p] 
 				tmp[p] = arr[j];
 				p++;
 			}
 		}
 		if (isThere(text, tmp) == 0) {
 			for (int s = 0; s <= p; s++) {
-				cout << tmp[s];
+				//cout << tmp[s];
 				text[q][s] = tmp[s];
 				tmp[s] = '\0';
 			}
 			q++;
 			count++;
+			if (count == 100 * 99 / 2) return sizecheck;
 
 		}
 		else {
@@ -79,7 +80,7 @@ int substring(char* arr, const int n) {
 			}
 		}
 		p = 0;
-		cout << endl;
+		//cout << endl;
 	}
 	return count;
 }
