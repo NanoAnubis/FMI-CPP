@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-	bool isMagic(vector<vector<double>>&square,const int size);
+	bool isMagic(vector<vector<double>>&square, const int size);
 	int N = 0;
 	vector<vector<double>>Msquare;
 	do {
@@ -29,7 +29,7 @@ int main() {
 	return 0;
 }
 
-bool isMagic(vector<vector<double>> & square, const int size) {
+bool isMagic(vector<vector<double>>& square, const int size) {
 	void TotalReset(vector<double>&, double&);
 	vector<double>Totals;
 	double total = 0;
@@ -55,7 +55,12 @@ bool isMagic(vector<vector<double>> & square, const int size) {
 	}
 	total = Totals[0];
 	for (int i = 0; i < Totals.size(); i++) {
-		if (Totals[i] != total) return false;
+		if (Totals[i] > total) {
+			if(Totals[i] - total > 0.00000000001)return false;
+		}
+		else if (Totals[i] < total) {
+			if (total - Totals[i] > 0.00000000001)return false;
+		}
 	}
 	return true;
 }
