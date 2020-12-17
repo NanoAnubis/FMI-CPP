@@ -1,3 +1,4 @@
+
 #include<iostream>
 #include<fstream>
 using namespace std;
@@ -11,7 +12,7 @@ int strSize(char* string) {
 }
 
 int main() {
-	char lowS(char*, int);
+	char FindLowest(char*, int);
 	char secret(char*, int, char);
 	const size_t maxsize = 151;
 	char Input[maxsize] = "";
@@ -19,7 +20,7 @@ int main() {
 	int size = 0;
 	myFile.open("message.txt", fstream::in);
 	if (myFile.is_open() == false) {
-		cout << "-2"<<endl;
+		cout << "-2" << endl;
 		return 0;
 	}
 	do {
@@ -32,10 +33,10 @@ int main() {
 				return 0;
 			}
 		}
-		char lowest, Ssymbol;
-		lowest = lowS(Input, size);
-		Ssymbol = secret(Input, size, lowest);
-		cout << Ssymbol;
+		char lowest, SecretSymbol;
+		lowest = FindLowest(Input, size);
+		SecretSymbol = secret(Input, size, lowest);
+		cout << SecretSymbol;
 		for (int i = 0; i < size; i++) {
 			Input[i] = '\0';
 		}
@@ -45,7 +46,7 @@ int main() {
 	return 0;
 }
 
-char lowS(char* string, int size) {
+char FindLowest(char* string, int size) {
 	char tmp = 'z';
 	for (int i = 0; i < size; i++) {
 		if (tmp > string[i]) {
