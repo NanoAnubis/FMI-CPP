@@ -1,3 +1,4 @@
+
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -31,7 +32,7 @@ int main() {
 
 bool isMagic(vector<vector<double>>& square, const int size) {
 	void TotalReset(vector<double>&, double&);
-	vector<double>Totals;
+	vector<double>Totals; //saves totals of rows, columns and diagonals
 	double total = 0;
 	for (int i = 0; i < size; i++) {
 		total += square[i][i];
@@ -56,7 +57,7 @@ bool isMagic(vector<vector<double>>& square, const int size) {
 	total = Totals[0];
 	for (int i = 0; i < Totals.size(); i++) {
 		if (Totals[i] > total) {
-			if(Totals[i] - total > 0.00000000001)return false;
+			if (Totals[i] - total > 0.00000000001)return false;//dostatychno malko chislo za proverka na ravenstvo
 		}
 		else if (Totals[i] < total) {
 			if (total - Totals[i] > 0.00000000001)return false;
