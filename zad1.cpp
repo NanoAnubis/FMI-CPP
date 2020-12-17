@@ -1,3 +1,5 @@
+
+
 #include<iostream>
 using namespace std;
 
@@ -5,30 +7,29 @@ int main() {
 	const size_t SizeText = 151;
 	char text[SizeText] = "";
 	bool Check(char arr[]);
-	cin.getline(text,SizeText);
+	cin.getline(text, SizeText);
 	cout << Check(text) << endl;
 	return 0;
 }
 
 bool Check(char arr[]) {
-	int counter = 0, counter_tmp = 1, counter_tmp2 = 0;
-	char tmp ='\0';
+	int counter = 0, counter_tmp = 1, counter_tmp2 = 0;// 3 broqcha za 3 razlichni simvola
+	char tmp = '\0';
 	bool flag = 0;
 	const size_t SizeText = 151;
-	char checkdS[SizeText] = "";
+	char checkedSymb[SizeText] = "";
 	size_t size = 0, sizetmp = 0;
 	while (arr[size] != '\0') {
 		size++;
 	}
 	for (size_t i = 0; i < size; i++) {
 		sizetmp = 0;
-		while (checkdS[sizetmp] != '\0') {
+		while (checkedSymb[sizetmp] != '\0') {
 			sizetmp++;
 		}
 		bool isThere = 0;
 		for (size_t q = 0; q < sizetmp; q++) {
-			if (arr[i] == checkdS[q]) {
-				//i++;
+			if (arr[i] == checkedSymb[q]) {
 				isThere = 1;
 			}
 		}
@@ -36,8 +37,8 @@ bool Check(char arr[]) {
 			continue;
 		}
 		else {
-			checkdS[sizetmp] = arr[i];
-			checkdS[sizetmp + 1] = '\0';
+			checkedSymb[sizetmp] = arr[i];
+			checkedSymb[sizetmp + 1] = '\0';
 		}
 
 		tmp = arr[i];
@@ -78,8 +79,11 @@ bool Check(char arr[]) {
 			counter_tmp = 1;
 			continue;
 		}
-		if(sizetmp>1){
-			if (counter != counter_tmp && counter_tmp != counter_tmp2) return 0;
+		if (sizetmp > 1) {
+			if (counter != counter_tmp && counter_tmp != counter_tmp2 && counter!=counter_tmp2) return 0;
+			if (counter_tmp == counter_tmp2 && counter_tmp2 > counter) return 0;
+			if (counter == counter_tmp2 && counter_tmp2 > counter_tmp) return 0;
+			if (counter_tmp == counter && counter_tmp > counter_tmp2) return 0;
 			if (counter < counter_tmp) {
 				if (counter != counter_tmp && counter != counter_tmp - 1) {
 					return 0;
@@ -90,13 +94,13 @@ bool Check(char arr[]) {
 					return 0;
 				}
 			}
-			}
+		}
 		if (flag == 1) {
 			counter_tmp2 = counter_tmp;
 			flag = 0;
 		}
 		counter_tmp = 1;
 	}
-	
+
 	return 1;
 }
