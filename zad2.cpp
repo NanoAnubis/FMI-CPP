@@ -1,3 +1,4 @@
+
 #include<iostream>
 using namespace std;
 
@@ -22,7 +23,7 @@ bool isSmallLatin(char* string) {
 int main() {
 	bool CanColab(char*, char*, char*);
 	const size_t size = 150;
-	char Text1[size] = "", Text2[size] = "", Colab[size]="";
+	char Text1[size] = "", Text2[size] = "", Colab[size] = "";
 	cin >> Text1 >> Text2 >> Colab;
 	if (isSmallLatin(Text1) == false || isSmallLatin(Text2) == false || isSmallLatin(Colab) == false) {
 		cout << "-1" << endl;
@@ -38,14 +39,14 @@ bool CanColab(char* first, char* second, char* together) {
 	if (sizeF + sizeS > sizeT || sizeF + sizeS < sizeT) {
 		return 0;
 	}
-	size_t s = 0;
-	char CopyT[150] = "";
+	size_t s = 0; //counter for size of string
+	char CopyT[150] = ""; // kopie na string together
 	while (together[s] != '\0') {
 		CopyT[s] = together[s];
 		s++;
 	}
 	//first + second = firstsecond
-	size_t i = 0;	
+	size_t i = 0;
 	while (i < sizeF) {
 		for (size_t p = 0; p < sizeF; p++) {
 			if (first[i] == together[p]) {
@@ -68,7 +69,7 @@ bool CanColab(char* first, char* second, char* together) {
 	s = 0;
 	while (together[s] != '\0') {
 		if (together[s] != '0') {
-			isTrue=0;
+			isTrue = 0;
 		}
 		s++;
 	}
