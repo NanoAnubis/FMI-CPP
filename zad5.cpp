@@ -39,7 +39,6 @@ int main() {
 		SecretSymbol = secret(Input, size, lowest);
 		Output[out] = SecretSymbol;
 		out++;
-		//cout << SecretSymbol;
 		for (int i = 0; i < size; i++) {
 			Input[i] = '\0';
 		}
