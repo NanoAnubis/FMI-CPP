@@ -16,8 +16,9 @@ int main() {
 	char secret(char*, int, char);
 	const size_t maxsize = 151;
 	char Input[maxsize] = "";
+	char Output[1001] = "";
 	fstream myFile;
-	int size = 0;
+	int size = 0, out = 0;
 	myFile.open("message.txt", fstream::in);
 	if (myFile.is_open() == false) {
 		cout << "-2" << endl;
@@ -29,19 +30,21 @@ int main() {
 		if (size == 0)break;
 		for (int i = 0; i < size; i++) {
 			if (Input[i] < 'A' || (Input[i] > 'Z' && Input[i] < 'a') || Input[i]>'z') {
-				cout << "-2" << endl;
+				cout<< "-1" << endl;
 				return 0;
 			}
 		}
 		char lowest, SecretSymbol;
 		lowest = FindLowest(Input, size);
 		SecretSymbol = secret(Input, size, lowest);
-		cout << SecretSymbol;
+		Output[out] = SecretSymbol;
+		out++;
+		//cout << SecretSymbol;
 		for (int i = 0; i < size; i++) {
 			Input[i] = '\0';
 		}
 	} while (true);
-
+	cout << Output << endl;
 	myFile.close();
 	return 0;
 }
