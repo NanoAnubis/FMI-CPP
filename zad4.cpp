@@ -21,7 +21,7 @@ int power(int base, int ex) {
 bool isThere(char arr[100 * 100][100], char* newarr) {
 	int sizenew = strsize(newarr);
 	bool check = 0;
-	for (int i = 0; i < 100 * 100 ; i++) {
+	for (int i = 0; i < 100 * 100; i++) {
 		int size = strsize(arr[i]);
 		if (sizenew == size) {
 			for (int p = 0; p < sizenew; p++) {
@@ -46,11 +46,13 @@ bool isThere(char arr[100 * 100][100], char* newarr) {
 }
 
 int substring(char* arr, const int n) {
-	int sizecheck = power(2, n);
+	int sizecheck = 0;
+	if (n < 31) sizecheck = power(2, n);
+	else sizecheck = INT_MAX;
 	int count = 0, p = 0, q = 0; //counteri za obhojdane na stringove
 	char text[100 * 100][100] = {};
 	char tmp[100] = "";
-	for (int s = 0; s < 100; s++) {
+	for (int s = 0; s < 10000; s++) {
 		for (int t = 0; t < 100; t++) {
 			text[s][t] = '\0';
 		}
@@ -73,7 +75,7 @@ int substring(char* arr, const int n) {
 
 		}
 		else {
-			for (int s = 0; i <= p; s++) {
+			for (int s = 0; s <= p; s++) {
 				tmp[s] = '\0';
 			}
 		}
