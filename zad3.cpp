@@ -1,73 +1,81 @@
-
 #include<iostream>
-#include<vector>
 using namespace std;
 
-int main() {
-	bool isMagic(vector<vector<double>>&square, const int size);
-	int N = 0;
-	vector<vector<double>>Msquare;
-	do {
-		cin >> N;
-	} while (N <= 1 || N >= 1000);
-	for (int i = 0; i < N; i++) {
-		vector<double>row;
-		for (int p = 0; p < N; p++) {
-			double number = 0;
-			do {
-				cin >> number;
-			} while (number < 0 || number > 100);
-			row.push_back(number);
-		}
-		Msquare.push_back(row);
+int NOD(const int a,const int b) {
+	if (a == b) {
+		return a;
 	}
-	if (isMagic(Msquare, N) == 1) {
-		cout << "true" << endl;
+	if (a > b) {
+		return NOD(a - b, b);
 	}
-	else {
-		cout << "false" << endl;
-	}
-	return 0;
+	return NOD(a, b - a);
 }
 
-bool isMagic(vector<vector<double>>& square, const int size) {
-	void TotalReset(vector<double>&, double&);
-	vector<double>Totals; //saves totals of rows, columns and diagonals
-	double total = 0;
-	for (int i = 0; i < size; i++) {
-		total += square[i][i];
-	}
-	TotalReset(Totals, total);
-	for (int i = 0, p = size - 1; i < size; i++, p--) {
-		total += square[i][p];
-	}
-	TotalReset(Totals, total);
-	for (int i = 0; i < size; i++) {
-		for (int p = 0; p < size; p++) {
-			total += square[i][p];
+void Operation(const int* First,const int* Second,const char op) {
+	int Final[2] = {};
+	switch (op)
+	{
+		case '+': {
+			Final[0] = First[0] * Second[1] + First[1] * Second[0];
+			Final[1] = First[1] * Second[1];
+			break;
 		}
-		TotalReset(Totals, total);
-	}
-	for (int p = 0; p < size; p++) {
-		for (int i = 0; i < size; i++) {
-			total += square[i][p];
+		case '-': {
+			Final[0] = First[0] * Second[1] - First[1] * Second[0];
+			Final[1] = First[1] * Second[1];
+			break;
 		}
-		TotalReset(Totals, total);
-	}
-	total = Totals[0];
-	for (int i = 0; i < Totals.size(); i++) {
-		if (Totals[i] > total) {
-			if (Totals[i] - total > 0.00000000001)return false;//dostatychno malko chislo za proverka na ravenstvo
+		case '*': {
+			Final[0] = First[0] * Second[0];
+			Final[1] = First[1] * Second[1];
+			break;
 		}
-		else if (Totals[i] < total) {
-			if (total - Totals[i] > 0.00000000001)return false;
+		case '/': {
+			Final[0] = First[0] * Second[1];
+			Final[1] = First[1] * Second[0];
+			break;
 		}
 	}
-	return true;
-}
-
-void TotalReset(vector<double>& Totals, double& total) {
-	Totals.push_back(total);
-	total = 0;
+	if (Final[0] == 0) {
+		cout << Final[0] << " " << Final[1];
+		return;
+	}
+	int chisl = 0, znam = 0;//chislitel,znamenatel
+	chisl = Final[0];
+	znam = Final[1];
+	int nod = NOD(chisl, znam);
+	for (int i = 0; i < 2; i++) {
+		Final[i] /= nod;
+	}
+	cout << Final[0] << " " << Final[1];
 	return;
+}
+
+int main() {
+	int input = 0;
+	const int maxsize = 100000000;
+	int FirstN[2] = {};
+	int SecondN[2] = {};	
+	char operation = '\0';
+	for (int i = 0; i < 2; i++) {
+		do {
+			cin >> input;
+		} while (input < -maxsize || input > maxsize);
+		FirstN[i] = input;
+	}
+	do {
+		cin >> operation;
+	} while (operation != '+' && operation != '-' && operation != '*' && operation != '/');
+
+	for (int i = 0; i < 2; i++) {
+		do
+		{
+			cin >> input;
+		} while (input < -maxsize || input > maxsize);
+		SecondN[i] = input;
+	}
+
+	Operation(FirstN, SecondN, operation);
+
+	return 0;
 }
