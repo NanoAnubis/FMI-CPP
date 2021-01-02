@@ -2,7 +2,7 @@
 using namespace std;
 
 bool IsSequence(int* arr, int size, int number) {
-	int counter = 0, equal = 0;
+	int counter = 0;
 	bool flag = 1;
 	int* Tmp_arr = nullptr;
 	Tmp_arr = new int[size];
