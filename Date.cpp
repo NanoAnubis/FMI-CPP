@@ -106,8 +106,8 @@ void Date::ChangeDate()
 	case true: {
 
 		for (int i = 0; i < 12; i++) {
-			if (count_days >= MonthToDays_L[i] && count_days < MonthToDays_L[i + 1]) {
-				month = i;
+			if (count_days > MonthToDays_L[i] && count_days <= MonthToDays_L[i + 1]) {
+				month = i + 1;
 				day = count_days - MonthToDays_L[i];
 				break;
 			}
@@ -118,8 +118,8 @@ void Date::ChangeDate()
 	case false: {
 
 		for (int i = 0; i < 12; i++) {
-			if (count_days >= MonthToDays_NL[i] && count_days < MonthToDays_NL[i + 1]) {
-				month = i;
+			if (count_days > MonthToDays_NL[i] && count_days <= MonthToDays_NL[i + 1]) {
+				month = i + 1;
 				day = count_days - MonthToDays_NL[i];
 				break;
 			}
