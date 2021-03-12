@@ -9,7 +9,7 @@ Date::Date()
 	SetCount();
 }
 
-Date::Date(int _day, int _month, int _year)
+Date::Date(const int _day, const int _month, const int _year)
 {
 	day = _day;
 	month = _month;
@@ -18,23 +18,75 @@ Date::Date(int _day, int _month, int _year)
 	SetCount();
 }
 
-void Date::addDays(int n)
+void Date::addDays(const int n)
 {
 	count_days += n;
 	ChangeDate();
 }
 
-void Date::removeDays(int n )
+void Date::removeDays(const int n )
 {
 	count_days -= n;
 	ChangeDate();
 }
 
-void Date::SetCount() 
+bool Date::isLeapYear() const
+{
+	return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+}
+
+int Date::DaysToXmas() const
+{
+	switch (isLeapYear()) {
+	case true: {
+		return XmasDate_L - count_days;
+	}
+	case false: {
+		return XmasDate_NL - count_days;
+	}
+	}
+}
+
+int Date::DaysToNewYear() const
+{
+	switch (isLeapYear()) {
+	case true: {
+		return 367 - count_days;
+	}
+	case false: {
+		return 366 - count_days;
+	}
+	}
+}
+
+int Date::DaysToDate(const Date &rhs) const
+{
+	int days_left = rhs.count_days - this->count_days;
+	if (days_left < 0) {
+		switch (isLeapYear())
+		{
+		case true: {
+			days_left += 366;
+			break;
+		}
+		case false: {
+			days_left += 365;
+			break;
+		}
+		}
+	}
+	return days_left;
+}
+
+bool Date::isLaterThen(const Date &rhs) const
+{
+	return rhs.count_days > this->count_days;
+}
+
+void Date::SetCount()
 {
 	count_days = day;
-	switch (isLeapYear())
-	{
+	switch (isLeapYear()) {
 	case true: {
 
 		for (int i = 0; i < 12; i++) {
@@ -59,12 +111,11 @@ void Date::SetCount()
 	}
 }
 
-void Date::ChangeDate() 
+void Date::ChangeDate()
 {
 	while (count_days < 0) { // If year changes to the previous one
 		year--;
-		switch (isLeapYear())
-		{
+		switch (isLeapYear()) {
 		case true: {
 			count_days += 366;
 			break;
@@ -78,8 +129,7 @@ void Date::ChangeDate()
 	}
 	while (count_days >= 366) { // If year(L/NL) changes to the next one
 		bool flag = 0;
-		switch (isLeapYear())
-		{
+		switch (isLeapYear()) {
 		case true: {
 			if (count_days == 366) {
 				flag = 1;
@@ -101,8 +151,7 @@ void Date::ChangeDate()
 		}
 	}
 
-	switch (isLeapYear())
-	{
+	switch (isLeapYear()) {
 	case true: {
 
 		for (int i = 0; i < 12; i++) {
@@ -128,30 +177,3 @@ void Date::ChangeDate()
 	}
 	}
 }
-
-bool Date::isLeapYear()
-{
-	return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
-}
-
-int Date::DaysToXmas()
-{
-	return 0;
-}
-
-int Date::DaysToNewYear()
-{
-	return 0;
-}
-
-int Date::DaysToDate()
-{
-	return 0;
-}
-
-bool Date::isLaterThen(Date)
-{
-	return false;
-}
-
-

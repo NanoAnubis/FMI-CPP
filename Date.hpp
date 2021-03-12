@@ -5,15 +5,14 @@ class Date
 public:
 
 	Date();
-	Date(int, int, int);
-	void addDays(int);
-	void removeDays(int);
-	bool isLeapYear();
-	int DaysToXmas();
-	int DaysToNewYear();
-	int DaysToDate();
-	bool isLaterThen(Date);
-	//~Date();
+	Date(const int, const int, const int);
+	void addDays(const int);
+	void removeDays(const int);
+	bool isLeapYear() const;
+	int DaysToXmas() const;
+	int DaysToNewYear() const;
+	int DaysToDate(const Date &) const;
+	bool isLaterThen(const Date &) const;
 	
 
 private:
@@ -24,8 +23,6 @@ private:
 
 	void SetCount();
 	void ChangeDate();
-	// 31 28 31 30 31 30 31 31 30 31 30 31 not leap year
-	// 31 29 31 30 31 30 31 31 30 31 30 31 leap year
 
 	const int MonthToDays_NL[13] = { 0,31,59,90,120,151,181,212,243,273,304,334,365 }; 
 	const int MonthToDays_L[13] = { 0,31,60,91,121,152,182,213,244,274,305,335,366 }; 
