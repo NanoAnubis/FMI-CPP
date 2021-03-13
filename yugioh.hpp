@@ -5,25 +5,44 @@ public:
 
 	Monster_card();
 	Monster_card(const char*, const unsigned int, const unsigned int);
+	bool get_isEmpty_monster();
+	void setName(const char*);
+	void setAttack(const unsigned int);
+	void setDefence(const unsigned int);
+	void set_isEmpty(const bool);
+
+
 
 private:
-	char name[25];
-	unsigned int atack_points;
+	char name[26];
+	unsigned int attack_points;
 	unsigned int defence_points;
+	bool isEmpty;
 };
 
-enum Type { trap, buff, spell };
+enum Type { 
+	unknown,
+	trap,
+	buff,
+	spell
+};
 
 class Magic_card {
 public:
 
 	Magic_card();
 	Magic_card(const char*, const char*, const Type);
+	bool get_isEmpty_magic();
+	void setName(const char*);
+	void setEffect(const char*);
+	void setType(const Type);
+	void set_isEmpty_magic(const bool);
 
 private:
-	char name[25];
-	char effect[100];
+	char name[26];
+	char effect[101];
 	Type type;
+	bool isEmpty;
 };
 
 class Deck {
@@ -45,6 +64,8 @@ private:
 class Duelist {
 public:
 
+	Duelist();
+	Duelist(char*);
 	int getMonsterCardCount_Deck();
 	int getMagicCardCount_Deck();
 	void addMonsterCard_Deck(const char*, const unsigned int, const unsigned int);
