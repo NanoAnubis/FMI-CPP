@@ -18,6 +18,21 @@ Monster_card::Monster_card(const char* _name, const unsigned int _attack_points,
 	set_isEmpty(false);
 }
 
+const char* Monster_card::getName() const
+{
+	return name;
+}
+
+int Monster_card::getAttack() const
+{
+	return attack_points;
+}
+
+int Monster_card::getDefence() const
+{
+	return defence_points;
+}
+
 bool Monster_card::get_isEmpty_monster() const 
 {
 	return isEmpty;
@@ -63,6 +78,21 @@ Magic_card::Magic_card(const char* _name, const char* _effect, const Type _type)
 	setEffect(_effect);
 	setType(_type);
 	set_isEmpty_magic(false);
+}
+
+const char* Magic_card::getName() const
+{
+	return name;
+}
+
+const char* Magic_card::getEffect() const
+{
+	return effect;
+}
+
+Type Magic_card::getType() const
+{
+	return type;
 }
 
 bool Magic_card::get_isEmpty_magic() const
@@ -199,3 +229,12 @@ void Duelist::changeMagicCard_Deck(const unsigned int index, const char* _name, 
 	deck.changeMagicCard(index, _name, _effect, _type);
 }
 
+void Duelist::changeMonsterInDeck(const unsigned int index, const Monster_card newcard)
+{
+	deck.changeMonsterCard(index, newcard.getName(), newcard.getAttack(), newcard.getDefence());
+}
+
+void Duelist::changeMagicInDeck(const unsigned int index, const Magic_card newcard)
+{
+	deck.changeMagicCard(index, newcard.getName(), newcard.getEffect(), newcard.getType());
+}
