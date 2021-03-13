@@ -5,7 +5,7 @@ public:
 
 	Monster_card();
 	Monster_card(const char*, const unsigned int, const unsigned int);
-	bool get_isEmpty_monster();
+	bool get_isEmpty_monster() const;
 	void setName(const char*);
 	void setAttack(const unsigned int);
 	void setDefence(const unsigned int);
@@ -32,7 +32,7 @@ public:
 
 	Magic_card();
 	Magic_card(const char*, const char*, const Type);
-	bool get_isEmpty_magic();
+	bool get_isEmpty_magic() const;
 	void setName(const char*);
 	void setEffect(const char*);
 	void setType(const Type);
@@ -48,8 +48,8 @@ private:
 class Deck {
 public:
 
-	int getMonsterCardCount();
-	int getMagicCardCount();
+	int getMonsterCardCount() const;
+	int getMagicCardCount() const;
 	void addMonsterCard(const char*, const unsigned int, const unsigned int);
 	void addMagicCard(const char*, const char*, const Type);
 	void changeMonsterCard(const unsigned int, const char*, const unsigned int, const unsigned int);
@@ -66,8 +66,8 @@ public:
 
 	Duelist();
 	Duelist(const char*);
-	int getMonsterCardCount_Deck();
-	int getMagicCardCount_Deck();
+	int getMonsterCardCount_Deck() const;
+	int getMagicCardCount_Deck() const;
 	void addMonsterCard_Deck(const char*, const unsigned int, const unsigned int);
 	void addMagicCard_Deck(const char*, const char*, const Type);
 	void changeMonsterCard_Deck(const unsigned int, const char*, const unsigned int, const unsigned int);

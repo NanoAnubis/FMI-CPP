@@ -18,7 +18,7 @@ Monster_card::Monster_card(const char* _name, const unsigned int _attack_points,
 	set_isEmpty(false);
 }
 
-bool Monster_card::get_isEmpty_monster() 
+bool Monster_card::get_isEmpty_monster() const 
 {
 	return isEmpty;
 }
@@ -65,7 +65,7 @@ Magic_card::Magic_card(const char* _name, const char* _effect, const Type _type)
 	set_isEmpty_magic(false);
 }
 
-bool Magic_card::get_isEmpty_magic()
+bool Magic_card::get_isEmpty_magic() const
 {
 	return isEmpty;
 }
@@ -102,7 +102,7 @@ void Magic_card::set_isEmpty_magic(const bool _isEmpty)
 	isEmpty = _isEmpty;
 }
 
-int Deck::getMonsterCardCount()
+int Deck::getMonsterCardCount() const
 {
 	unsigned int count = 0;
 	for (int i = 0; i < 20; i++) {
@@ -113,7 +113,7 @@ int Deck::getMonsterCardCount()
 	return count;
 }
 
-int Deck::getMagicCardCount()
+int Deck::getMagicCardCount() const
 {
 	unsigned int count = 0;
 	for (int i = 0; i < 20; i++) {
@@ -169,12 +169,12 @@ Duelist::Duelist(const char*_name)
 	name = _name;
 }
 
-int Duelist::getMonsterCardCount_Deck()
+int Duelist::getMonsterCardCount_Deck() const
 {
-	return deck.getMagicCardCount();
+	return deck.getMonsterCardCount();
 }
 
-int Duelist::getMagicCardCount_Deck()
+int Duelist::getMagicCardCount_Deck() const
 {
 	return deck.getMagicCardCount();
 }
