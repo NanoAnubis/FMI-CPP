@@ -9,7 +9,7 @@ Date::Date()
 	SetCount();
 }
 
-Date::Date(const int _day, const int _month, const int _year)
+Date::Date(const unsigned int _day, const unsigned int _month, const unsigned int _year)
 {
 	day = _day;
 	month = _month;
@@ -18,13 +18,13 @@ Date::Date(const int _day, const int _month, const int _year)
 	SetCount();
 }
 
-void Date::addDays(const int n)
+void Date::addDays(const unsigned int n)
 {
 	count_days += n;
 	ChangeDate();
 }
 
-void Date::removeDays(const int n )
+void Date::removeDays(const unsigned int n )
 {
 	count_days -= n;
 	ChangeDate();

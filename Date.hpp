@@ -5,9 +5,9 @@ class Date
 public:
 
 	Date();
-	Date(const int, const int, const int);
-	void addDays(const int);
-	void removeDays(const int);
+	Date( const unsigned int, const unsigned int, const unsigned int);
+	void addDays(const unsigned int);
+	void removeDays(const unsigned int);
 	bool isLeapYear() const;
 	int DaysToXmas() const;
 	int DaysToNewYear() const;
