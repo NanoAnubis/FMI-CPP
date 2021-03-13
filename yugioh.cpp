@@ -151,8 +151,6 @@ void Deck::changeMonsterCard(const unsigned int index, const char* _name, const 
 
 }
 
-//trqbva da se kaje za indexite!
-
 void Deck::changeMagicCard(const unsigned int index, const char* _name, const char* _effect, const Type _type)
 {
 	deck_magic[index].setName(_name);
@@ -161,13 +159,14 @@ void Deck::changeMagicCard(const unsigned int index, const char* _name, const ch
 	deck_magic[index].set_isEmpty_magic(false);
 }
 
-Duelist::Duelist() {
-
+Duelist::Duelist() 
+{
+	name = "Unknown";
 }
 
-Duelist::Duelist(char*)
+Duelist::Duelist(const char*_name)
 {
-
+	name = _name;
 }
 
 int Duelist::getMonsterCardCount_Deck()
@@ -180,23 +179,23 @@ int Duelist::getMagicCardCount_Deck()
 	return deck.getMagicCardCount();
 }
 
-void Duelist::addMonsterCard_Deck(const char*, const unsigned int, const unsigned int)
+void Duelist::addMonsterCard_Deck(const char* _name, const unsigned int _attack_points, const unsigned int _defence_points)
 {
-
+	deck.addMonsterCard(_name, _attack_points, _defence_points);
 }
 
-void Duelist::addMagicCard_Deck(const char*, const char*, const Type)
+void Duelist::addMagicCard_Deck(const char* _name, const char* _effect, const Type _type)
 {
-
+	deck.addMagicCard(_name, _effect, _type);
 }
 
-void Duelist::changeMonsterCard_Deck(const unsigned int, const char*, const unsigned int, const unsigned int)
+void Duelist::changeMonsterCard_Deck(const unsigned int index, const char* _name, const unsigned int _attack_points, const unsigned int _defence_points)
 {
-
+	deck.changeMonsterCard(index, _name, _attack_points, _defence_points);
 }
 
-void Duelist::changeMagicCard_Deck(const unsigned int, const char*, const char*, const Type)
+void Duelist::changeMagicCard_Deck(const unsigned int index, const char* _name, const char* _effect, const Type _type)
 {
-
+	deck.changeMagicCard(index, _name, _effect, _type);
 }
 

@@ -65,7 +65,7 @@ class Duelist {
 public:
 
 	Duelist();
-	Duelist(char*);
+	Duelist(const char*);
 	int getMonsterCardCount_Deck();
 	int getMagicCardCount_Deck();
 	void addMonsterCard_Deck(const char*, const unsigned int, const unsigned int);
@@ -74,6 +74,6 @@ public:
 	void changeMagicCard_Deck(const unsigned int, const char*, const char*, const Type);
 
 private:
-	char* name;
+	const char* name;
 	Deck deck;
 };
