@@ -77,9 +77,9 @@ public:
 	void addMonsterCard_Deck(const char*, const unsigned int, const unsigned int);
 	void addMagicCard_Deck(const char*, const char*, const Type);
 	void changeMonsterCard_Deck(const unsigned int, const char*, const unsigned int, const unsigned int);
+	void changeMonsterCard_Deck(const unsigned int, const Monster_card&);
 	void changeMagicCard_Deck(const unsigned int, const char*, const char*, const Type);
-	void changeMonsterInDeck(const unsigned int, const Monster_card);
-	void changeMagicInDeck(const unsigned int, const Magic_card);
+	void changeMagicCard_Deck(const unsigned int, const Magic_card&);
 private:
 	const char* name;
 	Deck deck;

@@ -229,12 +229,12 @@ void Duelist::changeMagicCard_Deck(const unsigned int index, const char* _name, 
 	deck.changeMagicCard(index, _name, _effect, _type);
 }
 
-void Duelist::changeMonsterInDeck(const unsigned int index, const Monster_card newcard)
+void Duelist::changeMonsterCard_Deck(const unsigned int index, const Monster_card& newcard)
 {
 	deck.changeMonsterCard(index, newcard.getName(), newcard.getAttack(), newcard.getDefence());
 }
 
-void Duelist::changeMagicInDeck(const unsigned int index, const Magic_card newcard)
+void Duelist::changeMagicCard_Deck(const unsigned int index, const Magic_card& newcard)
 {
 	deck.changeMagicCard(index, newcard.getName(), newcard.getEffect(), newcard.getType());
 }
