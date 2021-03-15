@@ -72,6 +72,8 @@ public:
 
 	Duelist();
 	Duelist(const char*);
+	~Duelist();
+	void setName(const char*);
 	int getMonsterCardCount_Deck() const;
 	int getMagicCardCount_Deck() const;
 	void addMonsterCard_Deck(const char*, const unsigned int, const unsigned int);
@@ -81,6 +83,7 @@ public:
 	void changeMagicCard_Deck(const unsigned int, const char*, const char*, const Type);
 	void changeMagicCard_Deck(const unsigned int, const Magic_card&);
 private:
-	const char* name;
+
+	char* name;
 	Deck deck;
 };

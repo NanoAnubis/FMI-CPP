@@ -1,3 +1,6 @@
+#pragma warning(disable : 4996)
+#pragma warning(disable : 26812)//disables warning for 'enum class' instead of just 'enum'
+
 #include "yugioh.hpp"
 #include <cstring>
 #include <iostream>
@@ -191,12 +194,28 @@ void Deck::changeMagicCard(const unsigned int index, const char* _name, const ch
 
 Duelist::Duelist() 
 {
-	name = "Unknown";
+	//name = "Unknown";
+	name = new char[strlen("Unknown") + 1];
+	strcpy(name, "Unknown");
 }
 
 Duelist::Duelist(const char*_name)
 {
-	name = _name;
+	//name = _name;
+	name = new char[strlen(_name) + 1];
+	strcpy(name, _name);
+}
+
+Duelist::~Duelist()
+{
+	delete[] name;
+}
+
+void Duelist::setName(const char* _name)
+{
+	delete[] name;
+	name = new char[strlen(_name) + 1];
+	strcpy(name, _name);
 }
 
 int Duelist::getMonsterCardCount_Deck() const
