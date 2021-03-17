@@ -7,14 +7,15 @@
 class Deck {
 public:
 
+	~Deck() {};
+
 	int getMonsterCardCount() const;
 	int getMagicCardCount() const;
+
 	void addMonsterCard(const char*, const unsigned int, const unsigned int);
 	void addMagicCard(const char*, const char*, const Type);
 	void changeMonsterCard(const unsigned int, const char*, const unsigned int, const unsigned int);
 	void changeMagicCard(const unsigned int, const char*, const char*, const Type);
-
-	~Deck() {};
 
 private:
 	Monster_card deck_monster[20];

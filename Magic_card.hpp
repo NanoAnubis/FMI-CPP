@@ -14,16 +14,17 @@ public:
 
 	Magic_card();
 	Magic_card(const char*, const char*, const Type);
+	~Magic_card() {};
+
 	const char* getName() const;
 	const char* getEffect() const;
 	Type getType() const;
 	bool get_isEmpty_magic() const;
+
 	void setName(const char*);
 	void setEffect(const char*);
 	void setType(const Type);
 	void set_isEmpty_magic(const bool);
-
-	~Magic_card() {};
 
 private:
 	char name[26];

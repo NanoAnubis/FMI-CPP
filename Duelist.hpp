@@ -9,9 +9,12 @@ public:
 	Duelist();
 	Duelist(const char*);
 	~Duelist();
+
 	void setName(const char*);
+
 	int getMonsterCardCount_Deck() const;
 	int getMagicCardCount_Deck() const;
+
 	void addMonsterCard_Deck(const char*, const unsigned int, const unsigned int);
 	void addMagicCard_Deck(const char*, const char*, const Type);
 	void changeMonsterCard_Deck(const unsigned int, const char*, const unsigned int, const unsigned int);

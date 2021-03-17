@@ -4,14 +4,12 @@
 
 Duelist::Duelist()
 {
-	//name = "Unknown";
 	name = new char[strlen("Unknown") + 1];
 	strcpy(name, "Unknown");
 }
 
 Duelist::Duelist(const char* _name)
 {
-	//name = _name;
 	name = new char[strlen(_name) + 1];
 	strcpy(name, _name);
 }

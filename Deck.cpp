@@ -1,6 +1,5 @@
 #pragma warning(disable : 26812) //disables warning for 'enum class' instead of just 'enum'
 
-
 #include "Deck.hpp"
 #include <cstring>
 #include <iostream>
