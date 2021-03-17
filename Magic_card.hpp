@@ -2,6 +2,9 @@
 #pragma warning(disable : 4996)
 #pragma warning(disable : 26812) //disables warning for 'enum class' instead of just 'enum'
 
+#include <cstring>
+#include <iostream>
+
 enum Type {
 	unknown,
 	trap,

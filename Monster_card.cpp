@@ -1,6 +1,4 @@
 #include"Monster_card.hpp"
-#include <cstring>
-#include <iostream>
 
 Monster_card::Monster_card()
 {

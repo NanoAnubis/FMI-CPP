@@ -1,6 +1,4 @@
 #include"Magic_card.hpp"
-#include <cstring>
-#include <iostream>
 
 Magic_card::Magic_card()
 {

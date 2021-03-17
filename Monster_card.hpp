@@ -1,6 +1,9 @@
 #pragma once
 #pragma warning(disable : 4996)
 
+#include <cstring>
+#include <iostream>
+
 class Monster_card {
 public:
 

@@ -1,17 +1,17 @@
 #include"Duelist.hpp"
-#include <cstring>
-#include <iostream>
 
 Duelist::Duelist()
 {
 	name = new char[strlen("Unknown") + 1];
 	strcpy(name, "Unknown");
+	deck = Deck();
 }
 
 Duelist::Duelist(const char* _name)
 {
 	name = new char[strlen(_name) + 1];
 	strcpy(name, _name);
+	deck = Deck();
 }
 
 Duelist::~Duelist()

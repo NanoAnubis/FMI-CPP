@@ -1,8 +1,11 @@
-#pragma warning(disable : 26812) //disables warning for 'enum class' instead of just 'enum'
-
 #include "Deck.hpp"
-#include <cstring>
-#include <iostream>
+
+Deck::Deck() {
+	for (int i = 0; i < 20; i++) {
+		deck_monster[i] = Monster_card();
+		deck_magic[i] = Magic_card();
+	}
+}
 
 int Deck::getMonsterCardCount() const
 {

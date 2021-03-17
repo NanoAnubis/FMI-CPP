@@ -1,5 +1,4 @@
 #pragma once
-#pragma warning(disable : 4996)
 
 #include"Magic_card.hpp"
 #include"Monster_card.hpp"
@@ -7,6 +6,7 @@
 class Deck {
 public:
 
+	Deck();
 	~Deck() {};
 
 	int getMonsterCardCount() const;
