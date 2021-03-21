@@ -18,6 +18,38 @@ Date::Date(const unsigned int _day, const unsigned int _month, const unsigned in
 	SetCount();
 }
 
+Date::Date(const Date& other)
+{
+	day = other.getDay();
+	month = other.getMonth();
+	year = other.getYear();
+	SetCount();
+}
+
+Date& Date::operator=(const Date& other)
+{
+	day = other.getDay();
+	month = other.getMonth();
+	year = other.getYear();
+	SetCount();
+	return *this;
+}
+
+int Date::getDay() const
+{
+	return day;
+}
+
+int Date::getMonth() const
+{
+	return month;
+}
+
+int Date::getYear() const
+{
+	return year;
+}
+
 void Date::addDays(const unsigned int n)
 {
 	count_days += n;

@@ -5,7 +5,14 @@ class Date
 public:
 
 	Date();
-	Date( const unsigned int, const unsigned int, const unsigned int);
+	Date(const unsigned int, const unsigned int, const unsigned int);
+	Date(const Date&);
+	Date& operator=(const Date&);
+	~Date() {};
+
+	int getDay() const;
+	int getMonth() const;
+	int getYear() const;
 	void addDays(const unsigned int);
 	void removeDays(const unsigned int);
 	bool isLeapYear() const;
