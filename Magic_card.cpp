@@ -16,6 +16,25 @@ Magic_card::Magic_card(const char* _name, const char* _effect, const Type _type)
 	set_isEmpty_magic(false);
 }
 
+Magic_card::Magic_card(const Magic_card& other)
+{
+	setName(other.getName());
+	setEffect(other.getEffect());
+	setType(other.getType());
+	set_isEmpty_magic(other.get_isEmpty_magic());
+}
+
+Magic_card& Magic_card::operator=(const Magic_card& other)
+{
+	if (this != &other) {
+		setName(other.getName());
+		setEffect(other.getEffect());
+		setType(other.getType());
+		set_isEmpty_magic(other.get_isEmpty_magic());
+	}
+	return *this;
+}
+
 const char* Magic_card::getName() const
 {
 	return name;

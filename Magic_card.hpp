@@ -17,6 +17,8 @@ public:
 
 	Magic_card();
 	Magic_card(const char*, const char*, const Type);
+	Magic_card(const Magic_card&);
+	Magic_card& operator=(const Magic_card&);
 	~Magic_card() {};
 
 	const char* getName() const;

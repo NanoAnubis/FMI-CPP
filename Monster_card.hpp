@@ -9,6 +9,8 @@ public:
 
 	Monster_card();
 	Monster_card(const char*, const unsigned int, const unsigned int);
+	Monster_card(const Monster_card&);
+	Monster_card& operator=(const Monster_card&);
 	~Monster_card() {};
 
 	const char* getName() const;
@@ -22,6 +24,7 @@ public:
 	void set_isEmpty(const bool);
 
 private:
+
 	char name[26];
 	unsigned int attack_points;
 	unsigned int defence_points;

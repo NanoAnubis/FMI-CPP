@@ -16,6 +16,25 @@ Monster_card::Monster_card(const char* _name, const unsigned int _attack_points,
 	set_isEmpty(false);
 }
 
+Monster_card::Monster_card(const Monster_card& other)
+{
+	setName(other.getName());
+	setAttack(other.getAttack());
+	setDefence(other.getDefence());
+	set_isEmpty(false);
+}
+
+Monster_card& Monster_card::operator=(const Monster_card& other)
+{
+	if (this != &other) {
+		setName(other.getName());
+		setAttack(other.getAttack());
+		setDefence(other.getDefence());
+		set_isEmpty(false);
+	}
+	return *this;
+}
+
 const char* Monster_card::getName() const
 {
 	return name;
