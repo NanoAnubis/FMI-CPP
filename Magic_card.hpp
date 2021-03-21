@@ -1,3 +1,15 @@
+/**
+* Solution to homework assignment 1
+* Object Oriented Programming Course
+* Faculty of Mathematics and Informatics of Sofia University
+* Summer semester 2020/2021
+*
+* @author Lubomir Stoykov
+* @idnumber 62569
+* @task 2
+* @compiler VC
+*/
+
 #pragma once
 #pragma warning(disable : 4996)
 #pragma warning(disable : 26812) //disables warning for 'enum class' instead of just 'enum'

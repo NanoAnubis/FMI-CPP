@@ -1,3 +1,15 @@
+/**
+* Solution to homework assignment 1
+* Object Oriented Programming Course
+* Faculty of Mathematics and Informatics of Sofia University
+* Summer semester 2020/2021
+*
+* @author Lubomir Stoykov
+* @idnumber 62569
+* @task 1
+* @compiler VC
+*/
+
 #pragma once
 
 class Date
