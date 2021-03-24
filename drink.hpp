@@ -4,6 +4,7 @@
 
 class Drink {
 public:
+    Drink();
     Drink(const char* init_name, const int init_calories, const double& init_quantity, const double& init_price);
     Drink(const Drink& other);
     Drink& operator=(const Drink& other);

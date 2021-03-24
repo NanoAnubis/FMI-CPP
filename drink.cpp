@@ -1,7 +1,9 @@
 #include "drink.hpp"
 
+Drink::Drink() : name(nullptr), calories(0), quantity(0), price(0)
+{}
 Drink::Drink(const char* init_name, const int init_calories, const double& init_quantity, const double& init_price)
-	:calories(init_calories),quantity(init_quantity),price(init_price)
+	:calories(init_calories), quantity(init_quantity), price(init_price)
 {
 	set_name(init_name);
 }
