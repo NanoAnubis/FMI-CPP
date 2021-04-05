@@ -1,14 +1,18 @@
 #pragma once
 #include<iostream>
 
+//enum Type {
+//	gold,	//0
+//	silver	//1
+//};
+
+#include"TypeEnum.hpp"
+
 class Money 
 {
 public:
 
-	enum Type {
-		gold,	//0
-		silver	//1
-	};
+	
 
 	Money(const unsigned int qg = 0, const unsigned int qs = 0);
 
@@ -16,8 +20,11 @@ public:
 	unsigned int getSilver() const;
 	void TotalMoney() const;
 	
-	void addItem(const unsigned int, const Type); //adds only one type of currency
-	void addItem(const unsigned int, const unsigned int); //adds to both types of currency in order gold,silver
+	bool addItem(const unsigned int, const Type); //adds only one type of currency
+
+	bool addItem(const unsigned int, const unsigned int); //adds to both types of currency in order gold,silver
+
+	bool deleteItem(const unsigned int, const Type);
 
 	unsigned int SlotsNeeded() const;
 	void EraseItem();

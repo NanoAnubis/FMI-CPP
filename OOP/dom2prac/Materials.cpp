@@ -7,10 +7,28 @@
 //	}
 //}
 
-void Materials::addItem(const Type type, const unsigned int quantity)
+bool Materials::addItem(const unsigned int quantity, const Type type)
 {
 	QuantityByType[type] += quantity;
+	if (SlotsNeeded() > 16) {
+		QuantityByType[type] -= quantity;
+		std::cout << "Not enough space!" << std::endl;
+		return 0;
+	}
+	return 1;
 }
+
+bool Materials::deleteItem(const unsigned int quantity, const Type type)
+{
+	int tmp = QuantityByType[type] - quantity;
+	if (tmp < 0) {
+		std::cout << "There aren't so many materials of given type to be removed!" << std::endl;
+		return 0;
+	}
+	QuantityByType[type] -= quantity;
+	return 1;
+}
+
 unsigned int Materials::getQuantityByType(const Type type) const
 {
 	return QuantityByType[type];

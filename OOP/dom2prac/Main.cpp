@@ -5,16 +5,16 @@
 int main() {
 
 	Materials m1;
-	m1.addItem(Materials::herbs, 50);
-	m1.addItem(Materials::ores, 44);
-	m1.addItem(Materials::cloth, 73);
-	m1.addItem(Materials::essence, 12);
+	m1.addItem(50, herbs);
+	m1.addItem(44, ores);
+	m1.addItem(73, cloth);
+	m1.addItem(12, essence);
 	//std::cout << m1.getQuantityByType(Materials::ores) << std::endl;
 
 	Money mon1;
 	Money mon2(21, 66);
-	mon1.addItem(2, Money::gold);
-	mon1.addItem(265, Money::silver);
+	mon1.addItem(2, gold);
+	mon1.addItem(265, silver);
 	mon2.addItem(33, 455);
 	mon1.TotalMoney();
 	mon2.TotalMoney();
@@ -28,6 +28,14 @@ int main() {
 	std::cout << backmat2.isEmpty() << std::endl;
 	backmat2.EraseBackpack();
 	std::cout << backmat2.isEmpty() << std::endl;
+
+	backmoney2.addItem(30, silver);
+	backmat1.addItem(66, ores);
+	backmoney2.removeItem(2, gold);
+	backmoney2.removeItem(500, silver);
+	backmoney2.removeItem(200, gold);
+	backmoney2.removeItem(50000, silver);
+	backmat1.removeItem(100, ores);
 
 	return 0;
 }

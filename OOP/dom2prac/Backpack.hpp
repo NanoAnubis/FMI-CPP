@@ -15,11 +15,12 @@ public:
 	bool isEmpty() const;
 
 	void EraseBackpack();
-	void addItem();
-	void removeItem();
+	bool addItem(const unsigned int, const Type);
+	bool removeItem(const unsigned int, const Type);
+
 
 private:
-
+	
 	T Item;
 	unsigned int used_slots = 0;
 	const int slots = 16;
@@ -55,13 +56,13 @@ void Backpack<T>::EraseBackpack()
 }
 
 template <typename T>
-void Backpack<T>::addItem()
+bool Backpack<T>::addItem(const unsigned int quantity, const Type type)
 {
-	Item.addItem();
+	return Item.addItem(quantity,type);
 }
 
 template <typename T>
-void Backpack<T>::removeItem()
+bool Backpack<T>::removeItem(const unsigned int quantity, const Type type)
 {
-
+	return Item.deleteItem(quantity, type);
 }
