@@ -1,6 +1,7 @@
 #include<iostream>
 
 #include"Backpack.hpp"
+#include"Armor.hpp"
 
 int main() {
 
@@ -36,6 +37,17 @@ int main() {
 	backmoney2.removeItem(200, gold);
 	backmoney2.removeItem(50000, silver);
 	backmat1.removeItem(100, ores);
+
+	Armor a1;
+	Armor a2(cloth_a,6);
+	a1.setType(leather);
+	a1.setDefence(10);
+	a2.addEffect("Protection", 15);
+	a2.addEffect("Protection", 15);
+	a2.addEffect("Thoughness", 10);
+	a2.addEffect("aaa", 5);
+	a2.removeEffect("aaa");
+
 
 	return 0;
 }
