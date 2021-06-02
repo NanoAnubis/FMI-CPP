@@ -12,27 +12,20 @@ void Document::write_line(const std::string& line)
 
 std::string Document::read_line()
 {
-	if (line_counter >= lines.size()) return "";
-	try {
-		return lines.at(line_counter++);
+	if (line_counter >= lines.size()) {
+		throw(std::out_of_range("Out of range"));
 	}
-	catch (const std::out_of_range& oor) {
-		std::cerr << oor.what() << std::endl;
-	}
-	return "";
+	return lines[line_counter++];
 }
 
 std::string Document::read_line(const unsigned line)
 {
-	try {
-		std::string tmp = lines.at(line - 1);
-		line_counter = line;
-		return tmp;
+	if (line == 0 || line - 1 >= lines.size()) {
+		throw(std::out_of_range("Out of range"));
 	}
-	catch (const std::out_of_range& oor) {
-		std::cerr << oor.what() << std::endl;
-	}
-	return "";
+	std::string tmp = lines.at(line - 1);
+	line_counter = line;
+	return tmp;
 }
 
 

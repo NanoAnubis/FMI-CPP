@@ -14,33 +14,18 @@ bool is_there(const KeyValueDatabase& lhs, const std::string& key){
 }
 
 void KeyValueDatabase::add_entry(const std::pair<std::string, int>& entry)
-{
-	try {
-		
-		if (is_there(*this, entry.first) == true) {
-			throw (std::invalid_argument("Invalid argument"));
-		}
-		
-	}
-	catch (const std::invalid_argument& ia) {
-		std::cerr << ia.what() << std::endl;
-		return;
+{	
+	if (is_there(*this, entry.first) == true) {
+		throw (std::invalid_argument("Invalid argument"));
 	}
 	db.push_back(entry);
 }
 
 int KeyValueDatabase::get_value(const std::string& key) const
 {
-	try {
-		if (is_there(*this, key) == false) {
-			throw (std::invalid_argument("Invalid argument"));
-		}
+	if (is_there(*this, key) == false) {
+		throw (std::invalid_argument("Invalid argument"));
 	}
-	catch (const std::invalid_argument& ia) {
-		std::cerr << ia.what() << std::endl;
-		//return -1;
-	}
-
 	for (size_t i = 0; i < db.size(); i++) {
 		if (db[i].first == key) {
 			return db[i].second;
