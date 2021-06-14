@@ -23,8 +23,3 @@ std::string Object::get_fullpath() const
 {
 	return location + '/' + name + '.' + extension;
 }
-
-//Object* Object::clone() 
-//{
-//	return new Object(*this);
-//}

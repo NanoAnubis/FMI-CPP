@@ -17,21 +17,11 @@ class SimplePublisher {
 public:
 
 	SimplePublisher() = default;
-	virtual ~SimplePublisher();
-	// subscribe registers a Subscriber to start receiving messages
+
 	virtual void subscribe(Averager *);
-	//void subscribe(MovingAverager *);
-	//void subscribe(PeriodicSampler *);
 
-	// unsubscribe removes a Subscriber from the Publisher
-	// Subscribers are removed based on their `id`
-	// id's will always be unique
 	void unsubscribe(const Averager *);
-	//void unsubscribe(MovingAverager *);
-	//void unsubscribe(PeriodicSampler *);
 
-	// signal receives a message from an external source
-	// and replays that message to all the current subscribers
 	virtual void signal(const Message);
 
 protected:

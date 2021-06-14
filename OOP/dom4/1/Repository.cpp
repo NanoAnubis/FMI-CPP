@@ -59,11 +59,11 @@ void Repository::add(Averager* sub)
 
 }
 
-Averager* Repository::get(std::string id) const // <-- probvai bez const
+Averager* Repository::get(std::string id) const
 {
 	for (size_t i = 0; i < subscribers.size(); i++) {
 		if (subscribers[i]->id == id) {
-			return subscribers[i]; // probvai s dynamic cast predi return i 3 sluchaq
+			return subscribers[i];
 		}
 	}
 	return nullptr;

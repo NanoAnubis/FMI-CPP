@@ -6,7 +6,6 @@
 class Document  : public Object {
 public:
     Document(const std::string& name = "", const std::string& location = "", const std::string& extension = "");
-    ~Document() = default;
 
     void write_line(const std::string& line);
 

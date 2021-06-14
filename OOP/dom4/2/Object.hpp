@@ -12,7 +12,6 @@
 class Object : public Comparable, public Debug, public Serializable {
 public:
     Object(const std::string& name = "", const std::string& location = "", const std::string& extension = "");
-    virtual ~Object() = default;
 
     std::string get_name() const;
     std::string get_location() const;
